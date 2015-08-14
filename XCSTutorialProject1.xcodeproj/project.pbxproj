@@ -13,7 +13,7 @@
 		3A7DB57A1B5C1CFB008D2381 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A7DB5791B5C1CFB008D2381 /* Assets.xcassets */; };
 		3A7DB57D1B5C1CFB008D2381 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A7DB57B1B5C1CFB008D2381 /* LaunchScreen.storyboard */; };
 		3A7DB5881B5C1CFB008D2381 /* XCSTutorialProject1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7DB5871B5C1CFB008D2381 /* XCSTutorialProject1Tests.swift */; };
-		D2EA654C9517BE6DBAC0AA16 /* libPods-XCSTutorialProject1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8850F75B8F0FA227DA6D68EB /* libPods-XCSTutorialProject1.a */; };
+		B596E61DB15A12EB5BBA8C7F /* Pods_XCSTutorialProject1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFFBC7453AC0C4F5F4D04B56 /* Pods_XCSTutorialProject1.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,9 +37,9 @@
 		3A7DB5831B5C1CFB008D2381 /* XCSTutorialProject1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XCSTutorialProject1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A7DB5871B5C1CFB008D2381 /* XCSTutorialProject1Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCSTutorialProject1Tests.swift; sourceTree = "<group>"; };
 		3A7DB5891B5C1CFB008D2381 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8850F75B8F0FA227DA6D68EB /* libPods-XCSTutorialProject1.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XCSTutorialProject1.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9C9B74EAE386B5309E3D78F6 /* Pods-XCSTutorialProject1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XCSTutorialProject1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XCSTutorialProject1/Pods-XCSTutorialProject1.debug.xcconfig"; sourceTree = "<group>"; };
-		AAF7C185F71E76897EBBB2D6 /* Pods-XCSTutorialProject1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XCSTutorialProject1.release.xcconfig"; path = "Pods/Target Support Files/Pods-XCSTutorialProject1/Pods-XCSTutorialProject1.release.xcconfig"; sourceTree = "<group>"; };
+		ABD3F5BCF1A0FDC429CC6C25 /* Pods-XCSTutorialProject1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XCSTutorialProject1.release.xcconfig"; path = "Pods/Target Support Files/Pods-XCSTutorialProject1/Pods-XCSTutorialProject1.release.xcconfig"; sourceTree = "<group>"; };
+		DE3FCB618A61E1110CBAA37A /* Pods-XCSTutorialProject1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XCSTutorialProject1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XCSTutorialProject1/Pods-XCSTutorialProject1.debug.xcconfig"; sourceTree = "<group>"; };
+		EFFBC7453AC0C4F5F4D04B56 /* Pods_XCSTutorialProject1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XCSTutorialProject1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,7 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2EA654C9517BE6DBAC0AA16 /* libPods-XCSTutorialProject1.a in Frameworks */,
+				B596E61DB15A12EB5BBA8C7F /* Pods_XCSTutorialProject1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,8 +67,8 @@
 				3A7DB5711B5C1CFB008D2381 /* XCSTutorialProject1 */,
 				3A7DB5861B5C1CFB008D2381 /* XCSTutorialProject1Tests */,
 				3A7DB5701B5C1CFB008D2381 /* Products */,
-				AF9C68F2E9D283EC23E99B4B /* Pods */,
-				5673AC078041A55ADA8E5889 /* Frameworks */,
+				F508E2F1FD9289879D21B25C /* Pods */,
+				965BA8A62A0785B009E63EAD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,19 +103,19 @@
 			path = XCSTutorialProject1Tests;
 			sourceTree = "<group>";
 		};
-		5673AC078041A55ADA8E5889 /* Frameworks */ = {
+		965BA8A62A0785B009E63EAD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8850F75B8F0FA227DA6D68EB /* libPods-XCSTutorialProject1.a */,
+				EFFBC7453AC0C4F5F4D04B56 /* Pods_XCSTutorialProject1.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		AF9C68F2E9D283EC23E99B4B /* Pods */ = {
+		F508E2F1FD9289879D21B25C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9C9B74EAE386B5309E3D78F6 /* Pods-XCSTutorialProject1.debug.xcconfig */,
-				AAF7C185F71E76897EBBB2D6 /* Pods-XCSTutorialProject1.release.xcconfig */,
+				DE3FCB618A61E1110CBAA37A /* Pods-XCSTutorialProject1.debug.xcconfig */,
+				ABD3F5BCF1A0FDC429CC6C25 /* Pods-XCSTutorialProject1.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -127,11 +127,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A7DB58C1B5C1CFB008D2381 /* Build configuration list for PBXNativeTarget "XCSTutorialProject1" */;
 			buildPhases = (
-				759E14272D89B0A9832FEB78 /* Check Pods Manifest.lock */,
+				B3F8599810360FE56C1FE856 /* Check Pods Manifest.lock */,
 				3A7DB56B1B5C1CFB008D2381 /* Sources */,
 				3A7DB56C1B5C1CFB008D2381 /* Frameworks */,
 				3A7DB56D1B5C1CFB008D2381 /* Resources */,
-				6E2D4D37263C90DF095B60F8 /* Copy Pods Resources */,
+				4A7BC60E2C9DBB1C70C21E9D /* Embed Pods Frameworks */,
+				19ECCF04EEBB72C3BE4F6EEE /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -218,7 +219,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6E2D4D37263C90DF095B60F8 /* Copy Pods Resources */ = {
+		19ECCF04EEBB72C3BE4F6EEE /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -233,7 +234,22 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XCSTutorialProject1/Pods-XCSTutorialProject1-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		759E14272D89B0A9832FEB78 /* Check Pods Manifest.lock */ = {
+		4A7BC60E2C9DBB1C70C21E9D /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XCSTutorialProject1/Pods-XCSTutorialProject1-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B3F8599810360FE56C1FE856 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -381,7 +397,7 @@
 		};
 		3A7DB58D1B5C1CFB008D2381 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9C9B74EAE386B5309E3D78F6 /* Pods-XCSTutorialProject1.debug.xcconfig */;
+			baseConfigurationReference = DE3FCB618A61E1110CBAA37A /* Pods-XCSTutorialProject1.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = XCSTutorialProject1/Info.plist;
@@ -393,7 +409,7 @@
 		};
 		3A7DB58E1B5C1CFB008D2381 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AAF7C185F71E76897EBBB2D6 /* Pods-XCSTutorialProject1.release.xcconfig */;
+			baseConfigurationReference = ABD3F5BCF1A0FDC429CC6C25 /* Pods-XCSTutorialProject1.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = XCSTutorialProject1/Info.plist;

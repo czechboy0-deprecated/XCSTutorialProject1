@@ -1,10 +1,13 @@
 PODS:
-  - Crashlytics (3.1.0)
+  - BuildaUtils (0.0.10)
+  - XcodeServerSDK (0.1.9):
+    - BuildaUtils (= 0.0.10)
 
 DEPENDENCIES:
-  - Crashlytics (= 3.1.0)
+  - XcodeServerSDK (= 0.1.9)
 
 SPEC CHECKSUMS:
-  Crashlytics: 93e2f86363d53c002c6366a9d87e41f2eaee87c3
+  BuildaUtils: a6d3a5d27d4b96c86e4ce2ef6f2ba9d1ea32fa92
+  XcodeServerSDK: 1e37d7f559c8b158784ced337ed32928e8574924
 
 COCOAPODS: 0.38.2
