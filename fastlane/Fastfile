@@ -1,16 +1,102 @@
+
 fastlane_version "1.17.1"
+
 default_platform :ios
+
 platform :ios do
 
-  lane :prebuild do
-    cocoapods
+  lane :server_prebuild do
+    prebuild(is_server: true)
   end
 
-  lane :postbuild do
-    # slack(
-    #   message: "Xcode Bot reporting success."
-    # )
-    say "Xcode Bot reporting success."
+  private_lane :prebuild do |params|
+
+    is_server = params[:is_server]
+
+    increment_build_number
+    increment_version_number(bump_type: "patch")
+    commit_version_bump
+    push_to_git_remote
+
+    # download prov profiles for all our targets that need signing
+    profiles_out_path = is_server ? "/Library/Developer/XcodeServer/ProvisioningProfiles" : "/tmp"
+    udid = sigh(app_identifier: "com.honzadvorsky.XCSTutorialProject1", output_path: profiles_out_path)
+    ENV["PROVISIONING_UDID_APP"] = udid
+
   end
-  
+
+  private_lane :deploy do
+
+    deliver(beta: true, skip_deploy: true)
+    clean_build_artifacts
+  end
+
+  lane :release_local_build do
+
+    # prep
+    prebuild(is_server: false)
+
+    # do the actually building
+    gym(scheme: 'XCSTutorialProject1')
+    ipa_path = Actions.lane_context[:IPA_OUTPUT_PATH]
+
+    # deploy to itc
+    deploy
+  end
+
+  lane :release_from_xcs do
+
+    # prep
+    prebuild(is_server: false)
+
+    # download the actual archive from Xcode Server
+    bot_name = prompt(text: "Please provide the name of your Bot: ".yellow)
+    download_ipa(
+      xcs_ip: '127.0.0.1',
+      bot_name: bot_name
+    )
+    
+    # deploy to itc
+    deploy
+  end
+
+  private_lane :download_ipa do |params|
+
+    # make sure we have the required params
+    raise "A bot name hasn't been provided" if !params[:bot_name]
+    raise "Xcode Server hostname hasn't been provided" if !params[:xcs_ip]
+
+    # download assets (contains the archive) from Xcode Server
+    xcode_server_get_assets(
+      host: params[:xcs_ip],
+      bot_name: params[:bot_name]
+      )
+    archive_path = Actions.lane_context[Fastlane::Actions::SharedValues::XCODE_SERVER_GET_ASSETS_ARCHIVE_PATH]
+    assets_path = Actions.lane_context[Fastlane::Actions::SharedValues::XCODE_SERVER_GET_ASSETS_PATH]
+    ipa_path = "./app.ipa"
+    ENV['IPA_PATH'] = ipa_path
+    raise "Archive path is nil" if !archive_path
+
+    # export IPA
+    Helper.log.info "Downloaded xcarchive, now exporting the ipa".blue
+
+    # exporting an IPA from an Archive is a pending feature request in gym - replace the
+    # following script once it's there.
+    # See: https://github.com/fastlane/gym/issues/12
+    app_path = Dir[File.join(archive_path, "Products", "Applications", "*.app")][0]
+    ipa_absolute_path = File.absolute_path(File.join("..", ipa_path))
+    sh "/usr/bin/xcrun -sdk iphoneos PackageApplication -v '#{app_path}' -o '#{ipa_absolute_path}' exportFormat ipa"
+
+  end
+
+  private_lane :cleanup do
+
+    # delete both the assets folder and the ipa once it has been uploaded
+    ipa_path = ENV['IPA_PATH']
+    assets_path = Actions.lane_context[Fastlane::Actions::SharedValues::XCODE_SERVER_GET_ASSETS_PATH]
+    Helper.log.info "Deleting artifacts at path #{assets_path} and #{ipa_path}"
+    sh "cd .. && rm -r \"#{assets_path}\""
+    sh "cd .. && rm -r \"#{ipa_path}\""
+  end
+
 end
