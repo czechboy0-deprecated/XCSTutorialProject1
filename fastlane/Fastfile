@@ -1,4 +1,7 @@
-fastlane_version "1.17.1"
+
+update_fastlane
+fastlane_version "1.33.6"
+
 default_platform :ios
 platform :ios do
 
@@ -6,11 +9,51 @@ platform :ios do
     cocoapods
   end
 
-  lane :postbuild do
-    # slack(
-    #   message: "Xcode Bot reporting success."
-    # )
-    say "Xcode Bot reporting success."
+  lane :provision do
+
+  	ENV['SIGH_APP_IDENTIFIER'] = 'com.honzadvorsky.XCSTutorialProject1'
+  	ENV['SIGH_OUTPUT_PATH'] = './ProvisioningProfiles'
+  	ENV['SIGH_USERNAME'] = "#{ENV['USER']}@icloud.com"
+  	ENV['SIGH_SKIP_CERTIFICATE_VERIFICATION'] = 'true' # https://github.com/KrauseFx/sigh/issues/141
+
+  	ENV['FL_PROJECT_PROVISIONING_PROJECT_PATH'] = 'XCSTutorialProject1.xcodeproj'
+  	ENV['FL_PROJECT_PROVISIONING_PROFILE_TARGET_FILTER'] = '^XCSTutorialProject1$' # exact match in regex, we don't want e.g. XCSTutorialProject1Tests
+
+  	# create a folder for our provisioning profiles if not exists
+  	sh "cd .. && mkdir -p ProvisioningProfiles"
+
+  	# generate development profile
+  	profile_name = 'tutorial_app_dev'
+  	profile_file = "#{profile_name}.mobileprovision"
+  	profile_path = "./ProvisioningProfiles/#{profile_file}"
+  	udid_dev = sigh(
+  		provisioning_name: profile_name,
+  		filename: profile_file,
+  		development: true
+  		)
+
+  	# set the development profile in the project
+  	update_project_provisioning(
+  		profile: profile_path,
+  		build_configuration: 'Debug'
+  		)
+
+  	# generate appstore profile
+  	profile_name = 'tutorial_app_appstore'
+  	profile_file = "#{profile_name}.mobileprovision"
+  	profile_path = "./ProvisioningProfiles/#{profile_file}"
+  	udid_appstore = sigh(
+  		provisioning_name: profile_name,
+  		filename: profile_file
+  		)
+
+  	# set the appstore profile in the project
+  	update_project_provisioning(
+  		profile: profile_path,
+  		build_configuration: 'Release'
+  		)
+
   end
+
   
 end
