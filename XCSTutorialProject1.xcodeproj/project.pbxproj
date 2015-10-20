@@ -401,13 +401,10 @@
 			baseConfigurationReference = DE3FCB618A61E1110CBAA37A /* Pods-XCSTutorialProject1.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = XCSTutorialProject1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.honzadvorsky.XCSTutorialProject1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "19b4035c-fa0f-4fd0-ad0f-808909b9ba22";
 			};
 			name = Debug;
 		};
@@ -416,13 +413,10 @@
 			baseConfigurationReference = ABD3F5BCF1A0FDC429CC6C25 /* Pods-XCSTutorialProject1.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				INFOPLIST_FILE = XCSTutorialProject1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.honzadvorsky.XCSTutorialProject1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "509f0ef9-05e9-4bd6-a2bf-67eb0f16764c";
 			};
 			name = Release;
 		};
